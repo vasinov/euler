@@ -8,5 +8,5 @@ object Solution002 extends App with EulerMath {
     else count
   )
 
-  println(s"The answer is $answer")
+  assert(answer == 4613732)
 }
