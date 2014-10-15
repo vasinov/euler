@@ -11,4 +11,11 @@ trait EulerMath {
   }
 
   val fibs3: Stream[BigInt] = 0 #:: fibs3.scanLeft(BigInt(1))(_ + _)
+
+  def primeFactors(n: Long): Vector[Long] = {
+    (2 to math.sqrt(n).toInt)
+      .find(n % _ == 0)
+      .map(i => i.toLong +: primeFactors(n / i))
+      .getOrElse(Vector(n))
+  }
 }
